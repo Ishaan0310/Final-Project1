@@ -88,7 +88,7 @@ async def create_upload_file(projectName: str, file: UploadFile, conversiontype:
         return "success"
 
     if (conversiontype == "xlsxtojson"):
-        path2 = Path('C:/Users/Ishaan/Downloads/' + ts + '_' + file.filename + ".json")
+        path2 = Path('C:/Users/Ishaa/Downloads/' + ts + '_' + file.filename + ".json")
         df = pd.read_excel(path)
         df.to_json(path2)
         print(path2)
@@ -96,20 +96,20 @@ async def create_upload_file(projectName: str, file: UploadFile, conversiontype:
 
     if(conversiontype=="jsontoxml"):
         df = pd.read_json(path, orient='index')
-        path2 = Path('C:/Users/Ishaan/Downloads/' + ts + '_' + file.filename + ".xml")
+        path2 = Path('C:/Users/ishaa/Downloads/' + ts + ".xml")
         df.to_xml(path2)
         return "success"
 
     if (conversiontype == "jsontocsv"):
         df = pd.read_json(path, orient='index')
-        path2 = Path('C:/Users/Ishaan/Downloads/' + ts + '_' + file.filename + ".csv")
+        path2 = Path('C:/Users/ishaa/Downloads/' + ts + '_' + file.filename + ".csv")
         df.to_csv(path2)
         print(path2)
         return "success"
 
     if (conversiontype == "jsontoxlsx"):
         df = pd.read_json(path, orient='index')
-        path2 = Path('C:/Users/Ishaan/Downloads/' + ts + '_' + file.filename + ".xlsx")
+        path2 = Path('C:/Users/ishaa/Downloads/' + ts + '_' + file.filename + ".xlsx")
         df.to_excel(path2)
         return "success"
 
@@ -353,4 +353,4 @@ async def save_upload_file(upload_file: UploadFile, destination: Path) -> None:
         upload_file.file.close()
 
 if __name__ == '__main__':
-    uvicorn.run(app, host="0.0.0.0", port=8888)
+    uvicorn.run(app)
